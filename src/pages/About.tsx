@@ -1,4 +1,4 @@
-import { Target, Eye, Award, Users, Shield, TrendingUp, CheckCircle, Award as AwardIcon } from 'lucide-react';
+import { Target, Eye, Award, Users, Shield, TrendingUp, CheckCircle, Award as AwardIcon, ExternalLink } from 'lucide-react';
 
 export default function About() {
   const values = [
@@ -33,7 +33,7 @@ export default function About() {
               About <span className="text-cyan-400">BST InfoSec</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Enterprise-level security solutions designed for businesses that refuse to compromise on protection
+              Trusted cybersecurity partner for small and medium-sized businesses
             </p>
           </div>
         </div>
@@ -60,16 +60,27 @@ export default function About() {
                   directly address your security challenges. We partner with you as a trusted advisor, not just a
                   service provider.
                 </p>
+                <div className="mt-6">
+                  <a
+                    href="https://www.linkedin.com/company/bst-infosec"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                  >
+                    Visit us on LinkedIn
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-gray-800/60 p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all hover:shadow-lg hover:shadow-cyan-500/10">
-                <div className="text-4xl font-bold text-cyan-400 mb-2">200+</div>
-                <div className="text-gray-400 text-sm">Projects Completed</div>
-              </div>
-              <div className="bg-gray-800/60 p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all hover:shadow-lg hover:shadow-cyan-500/10">
                 <div className="text-4xl font-bold text-cyan-400 mb-2">98%</div>
                 <div className="text-gray-400 text-sm">Client Satisfaction</div>
+              </div>
+              <div className="bg-gray-800/60 p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all hover:shadow-lg hover:shadow-cyan-500/10">
+                <div className="text-4xl font-bold text-cyan-400 mb-2">200+</div>
+                <div className="text-gray-400 text-sm">Happy Clients</div>
               </div>
               <div className="bg-gray-800/60 p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all hover:shadow-lg hover:shadow-cyan-500/10 col-span-2">
                 <div className="text-4xl font-bold text-cyan-400 mb-2">50+</div>
@@ -82,17 +93,19 @@ export default function About() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="order-2 lg:order-1">
-              <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl border border-cyan-500/20 p-8 backdrop-blur-sm">
-                <img
-                  src="/src/assets/04.jpg"
-                  alt="Security Leadership"
-                  className="rounded-xl w-full h-auto object-cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+              <div className="relative h-96 rounded-xl overflow-hidden">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url(/src/assets/04.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                   }}
-                />
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
+                </div>
               </div>
             </div>
 
@@ -125,9 +138,9 @@ export default function About() {
                   </div>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  Pramodh brings over a decade of cybersecurity expertise and a passion for protecting businesses
-                  of all sizes. His vision is to make enterprise-level security accessible and affordable for SMBs
-                  seeking to grow securely.
+                  Pramodh brings extensive cybersecurity expertise and a passion for protecting businesses of all
+                  sizes. His vision is to make enterprise-level security accessible and affordable for SMBs seeking to
+                  grow securely.
                 </p>
               </div>
             </div>
@@ -143,8 +156,8 @@ export default function About() {
               <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
               <p className="text-gray-300 leading-relaxed">
                 To empower small and medium-sized businesses with affordable, tailored cybersecurity solutions
-                that protect their digital infrastructure without breaking the bank. We are committed to
-                delivering practical solutions that enable business growth while maintaining robust security.
+                that protect their digital infrastructure without breaking the bank. We are committed to delivering
+                practical solutions that enable business growth while maintaining robust security.
               </p>
             </div>
 
@@ -152,7 +165,7 @@ export default function About() {
               <Eye className="h-12 w-12 text-cyan-400 mb-6" />
               <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
               <p className="text-gray-300 leading-relaxed">
-                To be the trusted cybersecurity partner for growth-focused businesses, recognized for delivering
+                To be the trusted cybersecurity partner for growth-focused SMBs, recognized for delivering
                 business-aligned security strategies that prevent threats, optimize performance, and accelerate
                 digital transformation.
               </p>

@@ -199,12 +199,12 @@ export default function Services() {
           <p className="text-gray-300 mb-8 text-lg">
             Let's assess your security posture and provide actionable recommendations tailored to your business.
           </p>
-          <Link
-            to="/contact"
+          <a
+            href="mailto:info@bstinfosec.com?subject=Security%20Consultation%20Request"
             className="inline-flex items-center justify-center px-8 py-4 bg-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-600 transition-all shadow-lg hover:shadow-cyan-500/20"
           >
             Request a Consultation
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { createMailtoLink } from '../utils/emailHandler';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,11 +14,26 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    // Create email body from form data
+    const emailBody = `Name: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+
+    // Create mailto link
+    const mailtoLink = createMailtoLink('info@bstinfosec.com', 'New Contact Request', emailBody);
+
+    // Show success message
     setIsSubmitted(true);
+
+    // Open email client
+    setTimeout(() => {
+      window.location.href = mailtoLink;
+    }, 500);
+
+    // Reset form and hide message after 4 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: '', email: '', company: '', message: '' });
-    }, 3000);
+    }, 4000);
   };
 
   const contactInfo = [
@@ -150,8 +166,9 @@ export default function Contact() {
                 </button>
 
                 {isSubmitted && (
-                  <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg text-center">
-                    Thank you! Your message has been sent successfully.
+                  <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-4 rounded-lg text-center">
+                    <p className="font-semibold mb-1">Thank you for reaching out!</p>
+                    <p className="text-sm">Our team will connect with you within 24 hours. Opening your email client now...</p>
                   </div>
                 )}
               </form>
@@ -202,11 +219,7 @@ export default function Contact() {
                     <span className="text-cyan-400 font-semibold">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span className="text-cyan-400 font-semibold">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
+                    <span>Saturday - Sunday</span>
                     <span className="text-gray-500">Closed</span>
                   </div>
                 </div>

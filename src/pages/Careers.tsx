@@ -32,7 +32,7 @@ export default function Careers() {
       description:
         'Conduct security assessments for enterprise clients. You will perform vulnerability identification, simulate real-world attacks, and provide detailed remediation guidance. This role offers hands-on experience with the latest security tools and methodologies.',
       requirements: [
-        'Proven track record in penetration testing or vulnerability assessment',
+        '1+ year of experience in penetration testing or vulnerability assessment',
         'Knowledge of web application and network security concepts',
         'Experience with common security tools (Burp Suite, Metasploit, Nmap, etc.)',
         'Strong report writing and communication skills',
@@ -47,7 +47,7 @@ export default function Careers() {
       description:
         'Join our security operations team to monitor, analyze, and respond to security incidents. You will participate in threat analysis, assist with security assessments, and help protect our clients from evolving threats.',
       requirements: [
-        'Understanding of cybersecurity fundamentals',
+        '1+ year of experience in cybersecurity or related field',
         'Knowledge of security frameworks (NIST, ISO 27001 basics)',
         'Familiarity with SIEM tools and log analysis concepts',
         'Understanding of common attack vectors and mitigation techniques',
@@ -62,7 +62,7 @@ export default function Careers() {
       description:
         'Work directly with clients to assess their security posture, develop security strategies, and provide expert guidance on security best practices and compliance requirements. You will be a trusted advisor to our clients.',
       requirements: [
-        'Experience with security assessments and consulting',
+        '3+ years of experience in security assessments and consulting',
         'Knowledge of compliance frameworks (PCI DSS, HIPAA, GDPR, etc.)',
         'Understanding of enterprise security architectures',
         'Excellent client-facing and presentation skills',

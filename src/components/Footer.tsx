@@ -48,6 +48,11 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link to="/policies" className="text-gray-400 hover:text-cyan-400 text-sm transition-colors">
+                  Policies & Legal
+                </Link>
+              </li>
             </ul>
           </div>
 
