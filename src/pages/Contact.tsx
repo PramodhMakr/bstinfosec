@@ -1,6 +1,5 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import { useState, FormEvent } from 'react';
-import { createMailtoLink } from '../utils/emailHandler';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,7 +18,7 @@ export default function Contact() {
     const emailBody = `Name: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
 
     // Create mailto link
-    const mailtoLink = createMailtoLink('info@bstinfosec.com', 'New Contact Request', emailBody);
+    const mailtoLink = `mailto:info@bstinfosec.com?subject=New Contact Request&body=${encodeURIComponent(emailBody)}`;
 
     // Show success message
     setIsSubmitted(true);
@@ -58,13 +57,13 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5">
+    <div className="min-h-screen bg-slate-50">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600/5 via-transparent to-blue-700/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Get in <span className="text-cyan-400">Touch</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            Get in <span className="text-blue-600">Touch</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as
             possible.
           </p>
@@ -78,156 +77,155 @@ export default function Contact() {
               <a
                 key={index}
                 href={info.href}
-                className="bg-gray-800/40 p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all group text-center"
+                className="bg-white/60 p-8 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all group text-center"
               >
-                <info.icon className="h-12 w-12 text-cyan-400 mb-4 mx-auto group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-bold text-white mb-2">{info.title}</h3>
-                <p className="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">{info.value}</p>
+                <info.icon className="h-12 w-12 text-blue-600 mb-4 mx-auto icon-hover-float" />
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{info.title}</h3>
+                <p className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">{info.value}</p>
               </a>
             ))}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Send Us a Message</h2>
-              <p className="text-gray-400 mb-8">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">Send Us a Message</h2>
+              <p className="text-slate-600 mb-8">
                 Fill out the form below and our team will get back to you within 24 hours. Or reach out directly to
-                <a href="mailto:info@bstinfosec.com" className="text-cyan-400 hover:text-cyan-300 ml-1 font-semibold transition-colors">
+                <a href="mailto:info@bstinfosec.com" className="text-blue-600 hover:text-blue-700 ml-1 font-semibold transition-colors">
                   info@bstinfosec.com
                 </a>
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
-                    placeholder="John Doe"
-                  />
+              {isSubmitted ? (
+                <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center shadow-md">
+                  <p className="text-green-800 font-semibold">Thank you for your message! Our team will respond to you within 24 hours.</p>
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
-                    placeholder="john@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
-                    placeholder="Your Company"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
-                    placeholder="Tell us about your security needs..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center px-8 py-4 bg-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-600 transition-all shadow-lg hover:shadow-cyan-500/20 group"
-                >
-                  <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  Send Message
-                </button>
-
-                {isSubmitted && (
-                  <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-4 rounded-lg text-center">
-                    <p className="font-semibold mb-1">Thank you for reaching out!</p>
-                    <p className="text-sm">Our team will connect with you within 24 hours. Opening your email client now...</p>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 border border-blue-600/20 rounded-lg focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 bg-white/60 text-slate-900 placeholder-slate-500"
+                      placeholder="John Doe"
+                    />
                   </div>
-                )}
-              </form>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 border border-blue-600/20 rounded-lg focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 bg-white/60 text-slate-900 placeholder-slate-500"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="w-full px-4 py-3 border border-blue-600/20 rounded-lg focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 bg-white/60 text-slate-900 placeholder-slate-500"
+                      placeholder="Acme Corporation"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      required
+                      rows={6}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3 border border-blue-600/20 rounded-lg focus:ring-2 focus:ring-blue-600/50 focus:border-blue-600 bg-white/60 text-slate-900 placeholder-slate-500 resize-none"
+                      placeholder="Tell us about your security needs..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600/50 transition-all"
+                  >
+                    <Send className="mr-2 h-5 w-5" />
+                    Send Message
+                  </button>
+                </form>
+              )}
             </div>
 
             <div className="space-y-8">
-              <div className="bg-gray-800/40 p-8 rounded-xl border border-cyan-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Quick Contact Options</h3>
+              <div className="bg-white/60 p-10 rounded-xl border border-blue-600/20 hover:bg-blue-50/50 transition-all cursor-pointer">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Quick Contact</h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-gray-400 text-sm mb-2">For General Questions:</p>
+                    <p className="text-slate-600 text-sm mb-2">For General Questions:</p>
                     <a
                       href="mailto:info@bstinfosec.com"
-                      className="flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                      className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                     >
-                      <Mail className="h-5 w-5 mr-2" />
+                      <Mail className="h-5 w-5 mr-2 icon-hover" />
                       info@bstinfosec.com
                     </a>
                   </div>
-                  <div className="border-t border-gray-700 pt-4">
-                    <p className="text-gray-400 text-sm mb-2">For Sales & Business Inquiries:</p>
+                  <div className="border-t border-slate-200 pt-4">
+                    <p className="text-slate-600 text-sm mb-2">For Sales & Business Inquiries:</p>
                     <a
                       href="mailto:sales@bstinfosec.com"
-                      className="flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                      className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                     >
-                      <Mail className="h-5 w-5 mr-2" />
+                      <Mail className="h-5 w-5 mr-2 icon-hover" />
                       sales@bstinfosec.com
                     </a>
                   </div>
-                  <div className="border-t border-gray-700 pt-4">
-                    <p className="text-gray-400 text-sm mb-2">For Support & Incident Response:</p>
+                  <div className="border-t border-slate-200 pt-4">
+                    <p className="text-slate-600 text-sm mb-2">For Support & Incident Response:</p>
                     <a
                       href="mailto:support@bstinfosec.com"
-                      className="flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                      className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                     >
-                      <Mail className="h-5 w-5 mr-2" />
+                      <Mail className="h-5 w-5 mr-2 icon-hover" />
                       support@bstinfosec.com
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-800/40 p-8 rounded-xl border border-cyan-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Office Hours</h3>
-                <div className="space-y-4 text-gray-300">
+              <div className="bg-white/60 p-8 rounded-xl border border-blue-600/20 hover:bg-blue-50/50 transition-all cursor-pointer">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Office Hours</h3>
+                <div className="space-y-4 text-slate-600">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span className="text-cyan-400 font-semibold">9:00 AM - 6:00 PM</span>
+                    <span className="text-blue-600 font-semibold">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday - Sunday</span>
-                    <span className="text-gray-500">Closed</span>
+                    <span className="text-slate-500">Closed</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-8 rounded-xl border border-cyan-500/20">
-                <h3 className="text-2xl font-bold text-white mb-4">Security Incident?</h3>
-                <p className="text-gray-300 mb-6">
+              <div className="bg-gradient-to-br from-blue-600/10 to-blue-700/10 p-8 rounded-xl border border-blue-600/20 hover:from-blue-600/20 hover:to-blue-700/20 transition-all cursor-pointer">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Security Incident?</h3>
+                <p className="text-slate-600 mb-6">
                   For urgent security matters or immediate assistance, contact us directly. Our team is available
                   24/7 for critical security incidents.
                 </p>
@@ -235,7 +233,7 @@ export default function Contact() {
                   href="mailto:support@bstinfosec.com"
                   className="inline-flex items-center justify-center w-full px-6 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-all"
                 >
-                  <Mail className="h-5 w-5 mr-2" />
+                  <Mail className="h-5 w-5 mr-2 icon-hover" />
                   Report Security Incident
                 </a>
               </div>

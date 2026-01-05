@@ -11,7 +11,7 @@ import Policies from './pages/Policies';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-900 flex flex-col">
+      <div className="min-h-screen bg-slate-50 flex flex-col">
         <Header />
         <main className="flex-grow">
           <Routes>

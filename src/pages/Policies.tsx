@@ -2,13 +2,13 @@ import { Shield, FileText, Lock } from 'lucide-react';
 
 export default function Policies() {
   return (
-    <div className="min-h-screen bg-gray-900">
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5">
+    <div className="min-h-screen bg-slate-50">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600/5 via-transparent to-blue-700/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Legal <span className="text-cyan-400">Policies</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            Legal <span className="text-blue-600">Policies</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Transparency, trust, and compliance are at the core of our business
           </p>
         </div>
@@ -17,15 +17,15 @@ export default function Policies() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Privacy Policy */}
-          <div className="bg-gray-800/40 p-10 rounded-xl border border-cyan-500/20">
+          <div className="bg-white/60 p-10 rounded-xl border-2 border-blue-600/20">
             <div className="flex items-center space-x-3 mb-6">
-              <Lock className="h-8 w-8 text-cyan-400" />
-              <h2 className="text-3xl font-bold text-white">Privacy Policy</h2>
+              <Lock className="h-8 w-8 text-blue-600 icon-hover" />
+              <h2 className="text-3xl font-bold text-slate-900">Privacy Policy</h2>
             </div>
 
-            <div className="space-y-6 text-gray-300">
+            <div className="space-y-6 text-slate-600">
               <div>
-                <h3 className="text-xl font-semibold text-white mb-3">1. Information We Collect</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">1. Information We Collect</h3>
                 <p className="leading-relaxed">
                   BST Infosec Technologies collects information necessary to provide cybersecurity services and maintain
                   client relationships. This includes personal information (name, email, company), technical data about your
@@ -34,7 +34,7 @@ export default function Policies() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-white mb-3">2. How We Use Your Information</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">2. How We Use Your Information</h3>
                 <ul className="list-disc list-inside space-y-2">
                   <li>To deliver security assessments and consulting services</li>
                   <li>To maintain communication regarding assessments and findings</li>
@@ -45,7 +45,7 @@ export default function Policies() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-white mb-3">3. Data Protection & Security</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">3. Data Protection & Security</h3>
                 <p className="leading-relaxed">
                   We implement industry-standard security measures to protect your data. All assessment findings, reports,
                   and sensitive information are stored securely and accessed only by authorized personnel. Data is encrypted
@@ -54,7 +54,7 @@ export default function Policies() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-white mb-3">4. Data Retention</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">4. Data Retention</h3>
                 <p className="leading-relaxed">
                   Assessment reports and client data are retained for the duration of our business relationship plus 7 years
                   for compliance purposes. You may request data deletion at any time, subject to legal retention requirements.
@@ -72,13 +72,13 @@ export default function Policies() {
           </div>
 
           {/* Terms of Service */}
-          <div className="bg-gray-800/40 p-10 rounded-xl border border-cyan-500/20">
+          <div className="bg-white/60 p-10 rounded-xl border-2 border-blue-600/20">
             <div className="flex items-center space-x-3 mb-6">
-              <FileText className="h-8 w-8 text-cyan-400" />
-              <h2 className="text-3xl font-bold text-white">Terms of Service</h2>
+              <FileText className="h-8 w-8 text-blue-600 icon-hover" />
+              <h2 className="text-3xl font-bold text-slate-900">Terms of Service</h2>
             </div>
 
-            <div className="space-y-6 text-gray-300">
+            <div className="space-y-6 text-slate-600">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-3">1. Service Scope</h3>
                 <p className="leading-relaxed">
@@ -137,13 +137,13 @@ export default function Policies() {
           </div>
 
           {/* Non-Disclosure Agreement */}
-          <div className="bg-gray-800/40 p-10 rounded-xl border border-cyan-500/20">
+          <div className="bg-white/60 p-10 rounded-xl border-2 border-blue-600/20">
             <div className="flex items-center space-x-3 mb-6">
-              <Shield className="h-8 w-8 text-cyan-400" />
-              <h2 className="text-3xl font-bold text-white">Non-Disclosure Agreement (NDA)</h2>
+              <Shield className="h-8 w-8 text-blue-600 icon-hover" />
+              <h2 className="text-3xl font-bold text-slate-900">Non-Disclosure Agreement (NDA)</h2>
             </div>
 
-            <div className="space-y-6 text-gray-300">
+            <div className="space-y-6 text-slate-600">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-3">1. Confidential Information</h3>
                 <p className="leading-relaxed">
@@ -204,13 +204,13 @@ export default function Policies() {
           </div>
 
           {/* Compliance Statement */}
-          <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-10 rounded-xl border border-cyan-500/30">
-            <h2 className="text-3xl font-bold text-white mb-6">Compliance Statement</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
+          <div className="bg-gradient-to-br from-blue-600/10 to-blue-700/10 p-10 rounded-xl border-2 border-blue-600/20">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">Compliance Statement</h2>
+            <p className="text-slate-600 leading-relaxed mb-4">
               BST Infosec Technologies commits to operating in compliance with all applicable laws, regulations, and industry
               standards. This includes:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
+            <ul className="list-disc list-inside space-y-2 text-slate-600">
               <li>GDPR compliance for handling European customer data</li>
               <li>CCPA compliance for California resident information</li>
               <li>ISO 27001 information security management principles</li>
@@ -218,21 +218,21 @@ export default function Policies() {
               <li>NIST Cybersecurity Framework alignment</li>
               <li>SOC 2 security and confidentiality principles</li>
             </ul>
-            <p className="text-gray-300 leading-relaxed mt-4">
+            <p className="text-slate-600 leading-relaxed mt-4">
               Clients are required to comply with all applicable laws when engaging our services and implementing security
               recommendations.
             </p>
           </div>
 
           {/* Contact for Legal Matters */}
-          <div className="bg-gray-800/40 p-10 rounded-xl border border-cyan-500/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">Questions About Our Policies?</h3>
-            <p className="text-gray-300 mb-6">
+          <div className="bg-white/60 p-10 rounded-xl border-2 border-blue-600/20 text-center">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Questions About Our Policies?</h3>
+            <p className="text-slate-600 mb-6">
               For inquiries regarding privacy, terms, or NDA matters, please contact us at:
             </p>
             <a
               href="mailto:info@bstinfosec.com"
-              className="inline-flex items-center justify-center px-8 py-3 bg-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-600 transition-all"
+              className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
             >
               info@bstinfosec.com
             </a>

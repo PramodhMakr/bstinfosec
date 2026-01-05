@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Global animations and hover effects */
 
-/* Custom animations and hover effects */
+/* Icon hover effects */
 .icon-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -12,6 +10,7 @@
   filter: brightness(1.1);
 }
 
+/* Icon float animation */
 .icon-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -25,6 +24,7 @@
   }
 }
 
+/* Icon hover with float effect */
 .icon-hover-float {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -34,12 +34,7 @@
   transform: scale(1.15);
 }
 
-.image-no-border {
-  border: none !important;
-  border-radius: 12px;
-  box-shadow: none !important;
-}
-
+/* Enhanced image styling */
 .optimized-image {
   border-radius: 12px;
   overflow: hidden;
@@ -52,11 +47,18 @@
   transform: scale(1.02);
 }
 
+/* Remove borders from images */
 .image-no-border {
   border: none !important;
   border-radius: 12px;
 }
 
+/* Light blue theme for icons */
 .icon-light-blue {
   color: #2563eb !important;
+}
+
+/* Smooth transitions for all interactive elements */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
