@@ -1,8 +1,15 @@
 import { Target, Award, Users, Shield, TrendingUp, CheckCircle, Award as AwardIcon, ExternalLink, Mail, Linkedin } from 'lucide-react';
 import OptimizedImage from '../components/OptimizedImage';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    window.scrollTo(0, 0);
+    navigate('/contact');
+  };
+
   const values = [
     {
       icon: Shield,
@@ -238,13 +245,13 @@ export default function About() {
               <Mail className="mr-2 h-5 w-5" />
               Get Free Consultation
             </a>
-            <Link
-              to="/contact"
+            <button
+              onClick={handleContactClick}
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 font-semibold rounded-lg hover:bg-slate-50 border border-blue-600/30 transition-all"
             >
               <ExternalLink className="mr-2 h-5 w-5 text-blue-600" />
               Contact Us
-            </Link>
+            </button>
           </div>
         </div>
       </section>
