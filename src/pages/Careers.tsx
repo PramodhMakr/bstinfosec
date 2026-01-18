@@ -108,7 +108,6 @@ export default function Careers() {
                 src="/assets/stripped-03.jpg"
                 alt="Team Culture"
                 className="rounded-xl w-full h-auto object-cover"
-                removeBorder={true}
               />
             </div>
           </div>

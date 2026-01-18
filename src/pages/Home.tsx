@@ -1,75 +1,89 @@
 import { Link } from 'react-router-dom';
-import { Shield, Lock, Eye, Cloud, FileCheck, Users, ArrowRight, CheckCircle, Zap, ExternalLink } from 'lucide-react';
+import { Shield, Lock, Eye, ArrowRight, Zap } from 'lucide-react';
 import OptimizedImage from '../components/OptimizedImage';
 import ImageSlider from '../components/ImageSlider';
+import { useEffect } from 'react';
 
 export default function Home() {
+  // SEO Optimization
+  useEffect(() => {
+    document.title = 'Affordable Cybersecurity Services for SMBs | VAPT, 24/7 SOC | BST InfoSec';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Enterprise-grade cybersecurity starting at ₹15,000/month. VAPT testing, 24/7 SOC monitoring, and compliance management. Protect your SMB from cyber attacks in 48 hours.');
+    }
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'cybersecurity services for small business, affordable penetration testing, 24/7 security monitoring, VAPT services pricing, SMB security solutions, compliance management, cybersecurity consulting');
+    }
+  }, []);
   const coreServices = [
     {
       icon: Eye,
       title: 'VAPT Services',
-      subtitle: 'Identify & Eliminate Risks',
-      description: 'Vulnerability Assessment & Penetration Testing - Identify security gaps before attackers exploit them.',
+      subtitle: 'Starting at ₹25,000',
+      description: 'Complete penetration testing in 3-5 business days. Identify 95%+ vulnerabilities including OWASP Top 10, network misconfigurations, and API security gaps. Get detailed remediation reports with priority scoring.',
+      process: 'Discovery → Scanning → Exploitation → Reporting → Retesting',
     },
     {
       icon: Shield,
-      title: 'Network & Infrastructure',
-      subtitle: 'Secure Foundation',
-      description: 'Secure network architecture, firewall configuration, and access controls designed for scalability.',
+      title: '24/7 Security Operations',
+      subtitle: 'Starting at ₹15,000/month',
+      description: 'Real-time threat monitoring and incident response. Our SOC detects and responds to threats in under 15 minutes. Includes SIEM, threat intelligence, and monthly security reports.',
+      process: 'Setup → Monitoring → Detection → Response → Reporting',
     },
     {
       icon: Lock,
-      title: 'Security Operations Center',
-      subtitle: '24/7 Protection',
-      description: '24/7 monitoring, threat detection, and incident response for continuous protection of your business.',
+      title: 'Compliance Management',
+      subtitle: 'Starting at ₹20,000/month',
+      description: 'GDPR, PCI DSS, ISO 27001 compliance in 60-90 days. Automated gap analysis, policy creation, audit support, and employee training programs.',
+      process: 'Assessment → Gap Analysis → Implementation → Audit → Certification',
     },
   ];
 
   const whyChoose = [
-    'Business-first cybersecurity approach',
-    'Tailored solutions, not generic tools',
-    'Focus on prevention, detection, and response',
-    'Security strategies aligned with growth',
+    '24/7 security monitoring and incident response',
+    'Comprehensive penetration testing and vulnerability assessment',
+    'Compliance management for various industries',
+    'Expert team with proven cybersecurity solutions',
   ];
 
   return (
-    <div className="min-h-screen bg-soft-slate">
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-blue-700/5" />
+    <div className="min-h-screen bg-pattern-overlay">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden section-gradient">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-blue-700/10" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block mb-6 px-4 py-2 bg-blue-600/10 border border-blue-600/30 rounded-full">
-                <span className="text-blue-600 text-sm font-semibold">SMB Security Solutions</span>
+              <div className="inline-block mb-6 px-4 py-2 bg-rich-gradient border border-blue-600/30 rounded-full">
+                <span className="text-white text-sm font-semibold">SMB Security Solutions</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                Secure Your Digital
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                Stop Cyber Attacks Before
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
-                  Future Today
+                  They Cost You Everything
                 </span>
               </h1>
-              <p className="text-lg text-slate-600 mb-4 leading-relaxed max-w-2xl">
-                Enterprise-Level Security With Budget Flexibility
+              <p className="text-base text-slate-700 mb-4 leading-relaxed max-w-2xl font-semibold">
+                Enterprise-grade cybersecurity starting at just ₹15,000/month. Our SOC, VAPT, and compliance services help protect your business.
               </p>
-              <p className="text-base text-slate-500 mb-8 leading-relaxed max-w-2xl">
-                Protect your digital infrastructure without breaking the bank. BST InfoSec delivers tailored
-                cybersecurity solutions designed for small and medium-sized businesses seeking growth-aligned security
-                strategies.
+              <p className="text-sm text-slate-600 mb-8 leading-relaxed max-w-2xl">
+                Our security team is ready to help you secure your digital infrastructure with proven solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-blue-600/20 group"
+                  className="inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-lg transition-all shadow-lg group btn-gradient"
                 >
                   Explore Our Services
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform icon-hover" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 font-semibold rounded-lg hover:bg-slate-50 border border-blue-600/30 transition-all group"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/80 text-slate-700 font-semibold rounded-lg hover:bg-white/90 border border-blue-600/30 transition-all group content-card"
                 >
                   <Zap className="mr-2 h-5 w-5 text-blue-600 icon-hover" />
-                  Get Free Assessment
+                  Get Free Security Assessment
                 </Link>
               </div>
             </div>
@@ -88,30 +102,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/50 p-6 rounded-lg border-2 border-blue-600/10 hover:border-blue-600/30 transition-all hover:shadow-lg hover:shadow-blue-600/10">
-              <div className="text-5xl font-bold text-blue-600 mb-2">30+</div>
-              <div className="text-slate-600 text-sm mb-2">Happy Clients</div>
-              <p className="text-slate-500 text-xs">Trusted by SMBs and growing enterprises</p>
-            </div>
-            <div className="bg-white/50 p-6 rounded-lg border-2 border-blue-600/10 hover:border-blue-600/30 transition-all hover:shadow-lg hover:shadow-blue-600/10">
-              <div className="text-5xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-slate-600 text-sm mb-2">Client Satisfaction</div>
-              <p className="text-slate-500 text-xs">Consistently delivering results</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/10 to-blue-700/10 border-y border-blue-600/20 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               What We Serve
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
+            <p className="text-slate-700 max-w-2xl mx-auto">
               Customized security solutions for organizations at every stage of growth
             </p>
           </div>
@@ -123,8 +120,8 @@ export default function Home() {
               'Cost-Conscious Organizations',
               'Growth-Focused Businesses',
             ].map((item, idx) => (
-              <div key={idx} className="flex items-center space-x-3 bg-white/50 p-6 rounded-lg border border-blue-600/10 hover:border-blue-600/30 transition-all">
-                <CheckCircle className="h-6 w-6 text-blue-600 flex-shrink-0 icon-hover" />
+              <div key={idx} className="flex items-center space-x-3 content-card p-6 rounded-xl border border-blue-600/15 hover:border-blue-600/30 transition-all">
+                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse flex-shrink-0"></div>
                 <span className="text-slate-700">{item}</span>
               </div>
             ))}
@@ -132,11 +129,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/10 to-blue-700/10 border-y border-blue-600/20 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Our Core Services</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
+            <p className="text-slate-700 max-w-2xl mx-auto">
               Comprehensive cybersecurity solutions tailored to your business needs
             </p>
           </div>
@@ -145,14 +142,14 @@ export default function Home() {
             {coreServices.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-white/40 p-8 rounded-xl border-2 border-blue-600/10 hover:border-blue-600/40 transition-all hover:bg-white/60"
+                className="group relative content-card p-8 rounded-xl border-2 border-blue-600/15 hover:border-blue-600/40 transition-all"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-blue-700/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur" />
                 <div className="relative">
                   <service.icon className="h-14 w-14 text-blue-600 mb-4 icon-hover-float" />
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
                   <p className="text-blue-600 text-sm font-semibold mb-4">{service.subtitle}</p>
-                  <p className="text-slate-600">{service.description}</p>
+                  <p className="text-slate-700">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -170,7 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -178,9 +175,7 @@ export default function Home() {
               <div className="space-y-4">
                 {whyChoose.map((item, idx) => (
                   <div key={idx} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <CheckCircle className="h-6 w-6 text-blue-600 mt-1 icon-hover" />
-                    </div>
+                    <div className="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2 animate-pulse"></div>
                     <span className="text-slate-700 text-lg">{item}</span>
                   </div>
                 ))}
@@ -197,7 +192,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/10 to-blue-700/10 border-y border-blue-600/20">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/15 to-blue-700/15 border-y border-blue-600/25 section-gradient">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
             Secure Your Business Before Threats Strike
@@ -207,7 +202,7 @@ export default function Home() {
           </p>
           <a
             href="mailto:info@bstinfosec.com"
-            className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-600/20 group"
+            className="inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-lg transition-all shadow-lg group btn-gradient"
           >
             Request Free Assessment
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

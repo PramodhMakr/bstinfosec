@@ -36,22 +36,22 @@ export default function OptimizedImage({ src, alt, className, style }: Optimized
       <img
         src={optimizedSrc}
         alt={alt}
-        className={`transition-all duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} w-full h-full object-cover rounded-lg`}
+        className={`transition-all duration-400 ${isLoaded ? 'opacity-100' : 'opacity-0'} w-full h-full object-cover rounded-xl`}
         style={{
           objectFit: 'cover',
           objectPosition: 'center',
           border: 'none',
-          borderRadius: '8px',
-          background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
-          boxShadow: '0 4px 12px rgba(37, 99, 235, 0.15)',
-          padding: '4px',
+          borderRadius: '16px',
+          background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)',
+          boxShadow: '0 12px 40px rgba(37, 99, 235, 0.15), 0 4px 20px rgba(59, 130, 246, 0.1)',
+          padding: '8px',
         }}
         onLoad={handleLoad}
         onError={handleError}
         loading="lazy"
       />
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 animate-pulse rounded-lg" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-cyan-100 animate-pulse rounded-xl" />
       )}
     </div>
   );

@@ -6,10 +6,16 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const handleNavClick = () => {
+    window.scrollTo(0, 0);
+    setIsMenuOpen(false);
+  };
+
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About Us' },
     { path: '/services', label: 'Services' },
+    { path: '/faq', label: 'FAQ' },
     { path: '/careers', label: 'Careers' },
     { path: '/contact', label: 'Contact Us' },
   ];
@@ -33,6 +39,7 @@ export default function Header() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={handleNavClick}
                 className={`nav-link text-sm font-medium transition-colors relative group py-2 px-3 rounded-md ${
                   isActive(link.path)
                     ? 'text-blue-600 bg-blue-50'
@@ -62,20 +69,38 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-blue-600/20 shadow-lg">
           <nav className="px-4 py-4 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors min-h-[44px] flex items-center ${
-                  isActive(link.path)
-                    ? 'bg-blue-600/10 text-blue-600'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            <ul>
+              <li>
+                <Link to="/" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" onClick={handleNavClick} className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
           </nav>
         </div>
       )}

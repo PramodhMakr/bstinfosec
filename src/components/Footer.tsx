@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Shield, Mail, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
+  const handleFooterNavClick = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <footer className="bg-slate-900 border-t border-blue-600/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -24,32 +27,37 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/about" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/services" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/faq" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/contact" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/policies" className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
+                <Link to="/policies" onClick={handleFooterNavClick} className="text-slate-400 hover:text-blue-600 text-sm transition-colors">
                   Policies & Legal
                 </Link>
               </li>

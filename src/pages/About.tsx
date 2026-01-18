@@ -1,5 +1,6 @@
-import { Target, Eye, Award, Users, Shield, TrendingUp, CheckCircle, Award as AwardIcon, ExternalLink, Mail } from 'lucide-react';
+import { Target, Award, Users, Shield, TrendingUp, CheckCircle, Award as AwardIcon, ExternalLink, Mail, Linkedin } from 'lucide-react';
 import OptimizedImage from '../components/OptimizedImage';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   const values = [
@@ -79,9 +80,16 @@ export default function About() {
                 <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
                 <div className="text-slate-600 text-sm">Client Satisfaction</div>
               </div>
-              <div className="bg-white/60 p-8 rounded-xl border-2 border-blue-600/20 hover:border-blue-600/40 transition-all hover:shadow-lg hover:shadow-blue-600/10">
-                <div className="text-4xl font-bold text-blue-600 mb-2">30+</div>
-                <div className="text-slate-600 text-sm">Happy Clients</div>
+              <div className="bg-white/60 p-8 rounded-xl border-2 border-blue-600/20 hover:border-blue-600/40 transition-all hover:shadow-lg hover:shadow-blue-600/10 flex items-center justify-center">
+                <a
+                  href="https://www.linkedin.com/company/bst-infosec"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center text-blue-600 hover:text-blue-700 transition-colors"
+                >
+                  <Linkedin className="h-12 w-12 mb-2" />
+                  <span className="text-sm font-semibold">Visit LinkedIn</span>
+                </a>
               </div>
               <div className="bg-white/60 p-8 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all hover:shadow-lg hover:shadow-blue-600/10 col-span-2">
                 <div className="text-4xl font-bold text-blue-600 mb-2">20+</div>
@@ -155,48 +163,61 @@ export default function About() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white/50 p-10 rounded-xl border-2 border-blue-600/20 hover:border-blue-600/40 transition-all">
-              <Target className="h-12 w-12 text-blue-600 mb-4 icon-hover-float" />
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
-              <p className="text-slate-600 leading-relaxed">
-                To empower small and medium-sized businesses with affordable, tailored cybersecurity solutions
-                that protect their digital infrastructure without breaking the bank. We are committed to delivering
-                practical solutions that enable business growth while maintaining robust security.
-              </p>
-            </div>
-
-            <div className="bg-white/50 p-10 rounded-xl border-2 border-blue-600/20 hover:border-blue-600/40 transition-all">
-              <Eye className="h-12 w-12 text-blue-600 mb-4 icon-hover-float" />
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
-              <p className="text-slate-600 leading-relaxed">
-                To be the trusted cybersecurity partner for growth-focused SMBs, recognized for delivering
-                business-aligned security strategies that prevent threats, optimize performance, and accelerate
-                digital transformation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50">
-        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Our Core Values</h2>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Core Values</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Principles that guide every decision and every engagement
+              The principles that guide everything we do
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-white/40 p-8 rounded-xl border-2 border-blue-600/10 hover:border-blue-600/40 transition-all group"
-              >
-                <value.icon className="h-12 w-12 text-blue-600 mb-4 icon-hover-float group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{value.description}</p>
+              <div key={index} className="bg-white/60 p-6 rounded-lg border border-blue-600/10 hover:border-blue-600/30 transition-all hover:shadow-lg hover:shadow-blue-600/10">
+                <value.icon className="h-12 w-12 text-blue-600 mb-4 mx-auto icon-hover-float" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{value.title}</h3>
+                <p className="text-slate-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/10 to-blue-700/10 border-y border-blue-600/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Why Choose BST InfoSec?</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              The advantages of partnering with our security experts
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Expert Team',
+                description: 'Certified security professionals with years of experience in cybersecurity',
+                icon: Users
+              },
+              {
+                title: 'Customized Solutions',
+                description: 'Tailored security strategies that fit your specific business needs',
+                icon: Target
+              },
+              {
+                title: '24/7 Support',
+                description: 'Round-the-clock security monitoring and incident response services',
+                icon: Shield
+              },
+              {
+                title: 'Visit Us',
+                description: 'Schedule a consultation with our security experts',
+                icon: TrendingUp
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white/60 p-6 rounded-lg border border-blue-600/10 hover:border-blue-600/30 transition-all hover:shadow-lg hover:shadow-blue-600/10">
+                <feature.icon className="h-12 w-12 text-blue-600 mb-4 mx-auto icon-hover-float" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-slate-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -204,47 +225,26 @@ export default function About() {
       </section>
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-12 text-center">
-            Why Choose <span className="text-blue-600">BST InfoSec</span>?
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-            <div className="bg-white/50 p-6 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all group">
-              <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                <CheckCircle className="h-5 w-5 mr-2" />
-                Business-First Approach
-              </h4>
-              <p className="text-slate-600 text-sm">
-                We understand your business goals. Security solutions that enable growth, not hinder it.
-              </p>
-            </div>
-            <div className="bg-white/50 p-6 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all group">
-              <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                <CheckCircle className="h-5 w-5 mr-2" />
-                Tailored Solutions
-              </h4>
-              <p className="text-slate-600 text-sm">
-                No generic tools or cookie-cutter approaches. Every solution is customized to your needs.
-              </p>
-            </div>
-            <div className="bg-white/50 p-6 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all group">
-              <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                <CheckCircle className="h-5 w-5 mr-2" />
-                Prevention to Response
-              </h4>
-              <p className="text-slate-600 text-sm">
-                From vulnerability identification to incident response, we've got you covered end-to-end.
-              </p>
-            </div>
-            <div className="bg-white/50 p-6 rounded-xl border border-blue-600/20 hover:border-blue-600/40 transition-all group">
-              <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                <CheckCircle className="h-5 w-5 mr-2" />
-                Growth Aligned
-              </h4>
-              <p className="text-slate-600 text-sm">
-                Security strategies designed to scale with your business and support your growth objectives.
-              </p>
-            </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to Secure Your Business?</h2>
+          <p className="text-slate-600 mb-8 text-lg">
+            Let's discuss how we can protect your digital infrastructure with our comprehensive security solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:info@bstinfosec.com"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-blue-600/20"
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Get Free Consultation
+            </a>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 font-semibold rounded-lg hover:bg-slate-50 border border-blue-600/30 transition-all"
+            >
+              <ExternalLink className="mr-2 h-5 w-5 text-blue-600" />
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
